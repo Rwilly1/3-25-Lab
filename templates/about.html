@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }} - Non Profit Organization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>About Our Organization</h1>
+        <p class="tagline">Learn about our journey and mission</p>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/donate">Donate</a>
+            <a href="/contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="history">
+            <h2>Our History</h2>
+            <p>Founded in {{ founding_year }}, we've been dedicated to serving our community through various initiatives and programs.</p>
+        </section>
+
+        <section class="team">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                {% for member in team_members %}
+                <div class="team-member">
+                    <h3>{{ member.name }}</h3>
+                    <p class="role">{{ member.role }}</p>
+                    <p class="bio">{{ member.bio }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="values">
+            <h2>Our Values</h2>
+            <div class="values-list">
+                <div class="value-item">
+                    <h3>Integrity</h3>
+                    <p>We maintain the highest standards of honesty and transparency</p>
+                </div>
+                <div class="value-item">
+                    <h3>Community</h3>
+                    <p>We believe in the power of working together</p>
+                </div>
+                <div class="value-item">
+                    <h3>Innovation</h3>
+                    <p>We constantly seek better ways to serve our community</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; {{ current_year }} Non Profit Organization. Powered by Python Flask.</p>
+    </footer>
+</body>
+</html>
